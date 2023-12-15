@@ -1,0 +1,15 @@
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Playto.exe.config
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Playto.exe
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Playto.pdb
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Microsoft.Web.WebView2.Core.xml
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.AssemblyReference.cache
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.SuggestedBindingRedirects.cache
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.Form1.resources
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.Properties.Resources.resources
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.GenerateResource.cache
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.CoreCompileInputs.cache
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.CopyComplete
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.exe
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.pdb
