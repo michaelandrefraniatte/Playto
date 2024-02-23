@@ -68,6 +68,19 @@
             <summary>
             WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
             </summary>
+            <summary>
+            WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.CreateFromComICoreWebView2(System.IntPtr)">
+            <summary>
+            Creates a CoreWebView2 object that wraps an existing COM ICoreWebView2 object.
+            This allows interacting with the CoreWebView2 using .NET, even if it was originally created using COM.
+            </summary>
+            <param name="value">Pointer to a COM object that implements the ICoreWebView2 COM interface.</param>
+            <returns>Returns a .NET CoreWebView2 object that wraps the COM object.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when the provided COM pointer is null.</exception>
+            <exception cref="T:System.Runtime.InteropServices.InvalidComObjectException">Thrown when the value is not an ICoreWebView2 COM object and cannot be wrapped.</exception>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.PrintToPdfAsync(System.String,Microsoft.Web.WebView2.Core.CoreWebView2PrintSettings)">
              <summary>
@@ -1467,6 +1480,14 @@
             FrameId may not be valid if <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has not done any navigation. It's safe to get this value during or after the first <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/> event. Otherwise, it could return the invalid frame Id <c>0</c>.
             </remarks>
         </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptWithResultAsync(System.String)">
+            <summary>
+            Runs JavaScript code from the <c>javaScript</c> parameter in the current top-level document rendered in the WebView, The result of the execution is returned asynchronously in the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult"/> object which has methods and properties to obtain the successful result of script execution as well as any unhandled JavaScript exceptions.
+            </summary>
+            <example>
+            :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="ExecuteScriptWithResult":::
+            </example>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2Certificate">
             <summary>
             Represents a certificate. Gives access to a certificate's metadata.
@@ -2622,6 +2643,20 @@
             </summary>
             <param name="browserExecutableFolder">
             The relative path to the folder that contains the WebView2 Runtime.
+            </param>
+            <exception cref="T:Microsoft.Web.WebView2.Core.WebView2RuntimeNotFoundException">
+            WebView2 Runtime installation is missing.
+            </exception>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetAvailableBrowserVersionString(System.String,Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions)">
+            <summary>
+            Gets the browser version info including channel name if it is not the stable channel or WebView2 Runtime.
+            </summary>
+            <param name="browserExecutableFolder">
+            The relative path to the folder that contains the WebView2 Runtime.
+            </param>
+            <param name="environmentOptions">
+            The environment options used to create the environment.
             </param>
             <exception cref="T:Microsoft.Web.WebView2.Core.WebView2RuntimeNotFoundException">
             WebView2 Runtime installation is missing.
@@ -6148,6 +6183,36 @@
             Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
             </remarks>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException">
+            <summary>
+            This interface represents a JavaScript exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.LineNumber">
+            <summary>
+            The line number of the source where the exception occurred. Note that this position starts at 0.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.ColumnNumber">
+            <summary>
+            The column number of the source where the exception occurred. Note that this position starts at 0.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.Name">
+            <summary>
+            The Name is the exception's class name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.Message">
+            <summary>
+            The Message is the exception's message and potentially stack.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.ToJson">
+            <summary>
+            This will return all details of the exception as a JSON string.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptDialogOpeningEventArgs">
             <summary>
             Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ScriptDialogOpening"/> event.
@@ -7048,7 +7113,7 @@
             Determines whether to cancel the navigation.
             </summary>
             <remarks>
-            If set to <c>true</c>, the navigation is no longer present and the content of the current page is intact. For performance reasons, <c>GET</c> HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Cancellation for navigation to <c>about:blank</c> or frame navigation to srcdoc is not supported and ignored.
+            If set to <c>true</c>, the navigation is no longer present and the content of the current page is intact. For performance reasons, <c>GET</c> HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Navigations to about schemes are cancellable, unless `msWebView2CancellableAboutNavigations` feature flag is disabled. Cancellation of frame navigation to `srcdoc` is not supported and will be ignored.
             </remarks>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs.NavigationId">
@@ -7262,6 +7327,31 @@
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2File.Path">
             <summary>
             The absolute file path.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult">
+            <summary>
+            The result for <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptWithResultAsync(System.String)"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.Succeeded">
+            <summary>
+            This property is true if <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptWithResultAsync(System.String)"/> successfully executed script with no unhandled exceptions and the result is available in the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.ResultAsJson"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.ResultAsJson">
+            <summary>
+            A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also null.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.Exception">
+            <summary>
+            If Succeeded is false, you can use this property to get the unhandled exception thrown by script execution
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.TryGetResultAsString(System.String@,System.Int32@)">
+            <summary>
+            If Succeeded is true and the result of script execution is a string, this method provides the value of the string result, and we will get the false var value when the js result is not string type.
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs">

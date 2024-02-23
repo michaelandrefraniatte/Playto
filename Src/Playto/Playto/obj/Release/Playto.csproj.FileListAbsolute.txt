@@ -9,7 +9,6 @@ C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.Form
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.Properties.Resources.resources
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.GenerateResource.cache
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.CoreCompileInputs.cache
-C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.CopyComplete
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.exe
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.pdb
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\runtimes\win-x86\native\WebView2Loader.dll
@@ -18,3 +17,4 @@ C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\runtimes\wi
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Microsoft.Web.WebView2.Core.dll
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Microsoft.Web.WebView2.WinForms.dll
 C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\bin\Release\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\micha\Documents\github\Playto\Src\Playto\Playto\obj\Release\Playto.csproj.Up2Date
